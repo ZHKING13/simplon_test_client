@@ -1,0 +1,116 @@
+#menu-btn {
+    display: none;
+}
+
+.heading span::before {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--light-yellow);
+    z-index: -1;
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 3%;
+    height: 100px;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header .logo {
+    font-size: 1.5rem;
+    color: var(--violet);
+    font-weight: bold;
+}
+
+.header .logo span {
+    color: var(--primary);
+    font-size: 2.5rem;
+}
+
+.header .navbar a {
+    margin: 0 1rem;
+    font-size: 1.7rem;
+}
+
+.header .navbar a:hover {
+    color: var(--violet);
+}
+
+
+/* button contacte */
+
+#contact-btn .btn {
+    margin-top: 0;
+}
+
+#contact-btn i {
+    display: none;
+    font-size: 2.5rem;
+    color: var(--light-color);
+}
+
+.header.active {
+    padding: 2rem 9%;
+    box-shadow: var(--box-shadow);
+}
+
+@media (max-width:768px) {
+    #menu-btn {
+        display: block;
+        font-size: 2.1rem;
+    }
+    #menu-btn.fa-times {
+        transform: rotate(180deg);
+        font-size: 2.5rem;
+    }
+    .header .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    .header .navbar#active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+    .header .navbar a {
+        margin: 2rem;
+        display: block;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:500px) {
+    header #menu {
+        order: 1;
+    }
+    header .navbar {
+        width: 100vw;
+    }
+    .header .logo img {
+        display: none;
+    }
+    .header .logo {
+        font-size: 1rem;
+        color: var(--violet);
+        font-weight: bold;
+    }
+    .header .logo span {
+        color: var(--primary);
+        font-size: 1.5rem;
+    }
+}

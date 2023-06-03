@@ -1,0 +1,8 @@
+.participantList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 8rem;
+}
