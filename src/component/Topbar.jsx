@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
 
-
 function Topbar() {
     const [ShowNave, setShowNave] = useState(true);
+    const handlClick = () => {
+        setShowNave(!ShowNave);
+    };
 
     return (
         <header className="header">
@@ -19,10 +21,10 @@ function Topbar() {
             </p>
 
             <nav className="navbar" id={ShowNave ? "hiden" : "active"}>
-                <Link className="btn" to="/ajouter">
+                <Link onClick={handlClick} className="btn" to="/ajouter">
                     Ajouter
                 </Link>
-                <Link className="btn" to="/">
+                <Link onClick={handlClick} className="btn" to="/">
                     Liste
                 </Link>
             </nav>

@@ -14,8 +14,10 @@ export default function AddParticipant() {
     const checkEmail = () => {
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(email)) {
-            return messageApi.error('email invalid');
+            messageApi.error('email invalid');
+            return false
         }
+        return true
        
     };
     const checkNumero = () => {
@@ -23,14 +25,23 @@ export default function AddParticipant() {
         const numeroRegex = /^(01|05|07)\d{8}$/;
 ;
         if (!numeroRegex.test(numero)) {
-            return messageApi.error('numero invalide');
+            messageApi.error('numero invalide');
+            return false
         }
+        return true
     };
     const loginSubmit =async (e) => {
         e.preventDefault();
         const data = { nom, prenom, numero, email };
-        if (!nom || !prenom || !numero || !email || !checkEmail || !checkNumero) {
-            return messageApi.error('merci de remplir tout les champs');
+        if (
+            !nom ||
+            !prenom ||
+            !numero ||
+            !email ||
+            !checkEmail() ||
+            !checkNumero()
+        ) {
+            return messageApi.error("merci de remplir tout les champs correctement");
         }
      const response = await  axios
             .post(
@@ -55,14 +66,13 @@ export default function AddParticipant() {
             });
         // aller a la page list
         window.location.href = "/";
-        return response;
     };
     return (
         <div className="userDetail-container">
             <div className="window">
                 <div className="content">
-                    {contextHolder}
                     <div className="welcome">Emargement</div>
+                    {contextHolder}
                     <div className="subtitle">
                         merci de renseigner vos informations correctement
                     </div>
@@ -90,7 +100,7 @@ export default function AddParticipant() {
                         <label>
                             numero de telephone
                             <input
-                                type="text"
+                                type="number"
                                 placeholder="ex: 0707101010"
                                 className="input-line full-width"
                                 value={numero}
@@ -101,7 +111,7 @@ export default function AddParticipant() {
                         <label>
                             Email
                             <input
-                                type="text"
+                                type="email"
                                 className="input-line full-width"
                                 onChange={(e) => setEmail(e.target.value)}
                                 value={email}

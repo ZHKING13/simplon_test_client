@@ -6,14 +6,11 @@ const columns = [
         title: "Nom",
         dataIndex: "nom",
         key: "id",
-        sorter: (a, b) => a.nom.length - b.nom.length,
-        defaultSortOrder: "descend",
     },
     {
         title: "Prenom",
         dataIndex: "prenom",
         key: "id",
-        sorter: (a, b) => a.nom.length - b.nom.length,
     },
     {
         title: "Numero ",
@@ -27,16 +24,9 @@ const columns = [
         responsive: ["lg"],
     },
 ];
-const data = [
-    {
-        key: "1",
-        nom: "John Brown",
-        prenom: 32,
-        numero: "New York No. 1 Lake Park",
-    },
-];
+
 export default function ParticipantList() {
-    const [participants, setParticipants] = useState(data);
+    const [participants, setParticipants] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
             const result = await axios(
@@ -49,8 +39,8 @@ export default function ParticipantList() {
     }, []);
 
   return (
-    <div className="participantList">
-      <Table columns={columns} dataSource={participants} />
-    </div>
-    );
+      <div className="participantList">
+          <Table columns={columns} dataSource={participants} />
+      </div>
+  );
 }
