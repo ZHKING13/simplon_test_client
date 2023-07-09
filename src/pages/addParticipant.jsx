@@ -30,7 +30,7 @@ export default function AddParticipant() {
         }
         return true
     };
-    const loginSubmit =async (e) => {
+    const FormSubmit =async (e) => {
         e.preventDefault();
         const data = { nom, prenom, numero, email };
         if (
@@ -122,7 +122,7 @@ export default function AddParticipant() {
                     </div>
                     <div className="control">
                         <div>
-                            <button onClick={loginSubmit} className=" btn">
+                            <button onClick={FormSubmit} className=" btn">
                                 Valider
                             </button>
                         </div>
