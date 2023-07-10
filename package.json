@@ -4,7 +4,7 @@
     "version": "1.1.0",
     "type": "module",
     "scripts": {
-        "start": "serve build -s -L -p $PORT",
+        "start": "serve dist -s -L -p $PORT",
         "dev": "vite",
         "build": "vite build",
         "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
