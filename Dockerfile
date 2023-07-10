@@ -11,6 +11,6 @@ COPY . .
 # exposer le port 5173
 EXPOSE 5173
 # lancer l'application
-CMD ["npm", "start"]
+CMD ["npm", "run","dev"]
 
 
