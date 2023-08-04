@@ -38,9 +38,9 @@ export default function ParticipantList() {
         fetchData();
     }, []);
 
-  return (
-      <div className="participantList">
-          <Table columns={columns} dataSource={participants} />
-      </div>
-  );
+    return (
+        <div className="participantList">
+            <Table columns={columns} dataSource={participants} />
+        </div>
+    );
 }
